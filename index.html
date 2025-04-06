@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Vrinda's Birthday</title>	    
+		<title>Anchal's Day</title>	    
         <link type="text/css" rel="stylesheet" href="./file/default.css">
 		<script type="text/javascript" src="./file/jquery.min.js"></script>
 		<script type="text/javascript" src="./file/jscex.min.js"></script>
@@ -187,12 +187,19 @@
         }));
 
         var textAnimate = eval(Jscex.compile("async", function () {
-    var together = new Date(2003, 8, 19, 0, 0, 0);  // Initialize date directly (October is month 9 in JS)
+    // var together = new Date(2003, 8, 19, 0, 0, 0);  // Initialize date directly (October is month 9 in JS)
+    var together = new Date(2025, 3, 7, 0, 0, 0);  // Initialize date directly (October is month 9 in JS)
     
     $("#code").show().typewriter();
     $("#clock-box").fadeIn(500);
+    $("#day-counter-box").fadeIn(1000); // Show the counter now
+
     while (true) {
         timeElapse(together);
+        var birthStart = new Date(2004, 3, 7); // April 7, 2004
+    var today = new Date();
+    var totalDays = Math.floor((today - birthStart) / (1000 * 60 * 60 * 24));
+    $("#day-counter").html(totalDays);
         $await(Jscex.Async.sleep(1000));
     }
 }));
@@ -210,4 +217,28 @@
 
         runAsync().start();
     })();
-    </script></body></html>
+    </script>
+    
+    
+    
+    <!-- <div id="bottom-counter" style="display: none;">
+        <p>It’s been <span id="day-counter"></span> days since the world got lucky with your birth 💕</p>
+    </div>
+     -->
+
+<!-- RIDDLES GAME  -->
+ <!-- Day Counter and Footer -->
+<div id="bottom-section" >
+    <div id="day-counter-box" style="display: none;">
+        <span class="label">Days Since You Blessed The World 🌸:</span>
+        <span id="day-counter" class="counter">0000</span>
+    </div>
+
+    <footer>
+        <button id="riddle-btn">Play the Riddles Game</button>
+    </footer>
+</div>
+
+
+    </body>
+    </html>
