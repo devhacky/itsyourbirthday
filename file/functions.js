@@ -75,6 +75,7 @@ $(window).resize(function() {
 function timeElapse(targetDate) {
     var now = new Date();
     var secondsLeft = (targetDate - now) / 1000;
+    // var secondsLeft = 0;
 
     if (secondsLeft <= 0) {
         $("#clock").html("<span class='boom'>🎉 HAPPY BIRTHDAY BABY! 🎂💖</span>");
@@ -111,6 +112,39 @@ function timeElapse(targetDate) {
 }
 
 
+// CONFETTI
+function launchConfetti() {
+    var duration = 3 * 1000;
+    var animationEnd = Date.now() + duration;
+    var defaults = {
+      startVelocity: 30,
+      spread: 360,
+      ticks: 60,
+      zIndex: 9999
+    };
+  
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+  
+    var interval = setInterval(function () {
+      var timeLeft = animationEnd - Date.now();
+  
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+  
+      confetti({
+        ...defaults,
+        particleCount: 5,
+        origin: {
+          x: randomInRange(0.1, 0.9),
+          y: Math.random() - 0.2
+        }
+      });
+    }, 250);
+  }
+  
 
 
 
@@ -127,6 +161,17 @@ function timeElapse(targetDate) {
 
 
 
+  function triggerBoomEffects() {
+    launchConfetti();  // already defined by you
+
+    // Optional: Start audio
+    playAudio();
+
+    // Optional: Add a text animation or visual effect
+    $("#main").addClass("birthday-mode");
+
+    // Optional: Add blinking stars, floating hearts, etc. (Yes, I'm encouraging maximum cheesiness)
+}
 
 
 

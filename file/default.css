@@ -184,3 +184,33 @@ footer {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+
+.birthday-mode {
+  animation: party 1s infinite alternate;
+  background-color: #1E1E2F;
+  transition: background-color 1s;
+}
+
+@keyframes party {
+  from {
+      background-color: #1E1E2F;
+  }
+  to {
+      background-color: #2A2A40;
+  }
+}
+
+.boom {
+  font-size: 2em;
+  color: #ff1493;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
